@@ -17,9 +17,9 @@ Requirements
 Documentation
 -------------
 examples of usage:
-$('#idoftextarea').textareamaxrows();
-$('#idoftextarea').textareamaxrows({alert:true});
-$('#idoftextarea').textareamaxrows({alert:true, alertmessage : 'hey too long!', maxrows : 4, maxcharsinrow : 12});
+`$('#idoftextarea').textareamaxrows();`
+`$('#idoftextarea').textareamaxrows({alert:true});`
+`$('#idoftextarea').textareamaxrows({alert:true, alertmessage : 'hey too long!', maxrows : 4, maxcharsinrow : 12});`
 
 Plugin now stops accepting new chars when limits are reached. Pasting in a textarea can mess this up,
 solution for this can be placing onpaste="return false" in the html of the textarea, in the next version we will try
