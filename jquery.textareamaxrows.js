@@ -12,7 +12,9 @@
         function onKeyup() {
 
             var textarea_content = $(this).val();
-            var number_breaks    = $(this).val().split('\n').length;     
+            var number_breaks    = $(this).val().split('\n').length; 
+			// first break does not count
+			number_breaks--;
 
             var number_fake_breaks = 0;
             var text_paragraphs = $(this).val().split('\n');
@@ -22,7 +24,7 @@
                     number_fake_breaks = number_fake_breaks + number_fake_breaks_paragraph;
                 }
             }
-
+			
             if ((number_breaks + number_fake_breaks) >= opts.maxrows) {
                 if (opts.alert) {
                     alert(opts.alertmessage);
@@ -50,7 +52,7 @@
                 checkString = checkString.substr(chunkSize);
             }
         }
-
+		
         return chunks.length;
     }
 
