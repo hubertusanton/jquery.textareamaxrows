@@ -13,8 +13,8 @@
 
             var textarea_content = $(this).val();
             var number_breaks    = $(this).val().split('\n').length; 
-			// first break does not count
-			number_breaks--;
+            // first break does not count
+            number_breaks--;
 
             var number_fake_breaks = 0;
             var text_paragraphs = $(this).val().split('\n');
