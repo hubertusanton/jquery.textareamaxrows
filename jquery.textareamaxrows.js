@@ -18,6 +18,7 @@
 
         var opts = $.extend(defaults, options);
 
+        // prevent right click paste
         $(this).on("paste contextmenu",function(e) { e.preventDefault(); });
 
         return this.each(function(event) {
@@ -25,6 +26,7 @@
             $(this).keydown(onKeyDown);
         });
 
+        // prevent holding enter key
         function onKeyDown(event) {
             var keycode = (event.keyCode ? event.keyCode : event.which);
 
