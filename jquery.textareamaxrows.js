@@ -12,13 +12,35 @@
             usecounter : false,
             counterelem : '',
             errorclass : 'error'
-        }    
-    
+        }
+
+        var down = {};
+
         var opts = $.extend(defaults, options);
 
-        return this.each(function() {
+        $(this).on("paste contextmenu",function(e) { e.preventDefault(); });
+
+        return this.each(function(event) {
             $(this).keyup(onKeyup);
+            $(this).keydown(onKeyDown);
         });
+
+        function onKeyDown(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+
+            if (keycode == '13') {
+                if (down['13'] == null) { // first press
+                    down['13'] = true; // record that the key's down
+                }
+                else {
+
+                    // Cut down the string
+                    var current_length = $(this).val().length;
+                    var new_length = current_length - 1;
+                    $(this).val($(this).val().substr(0, new_length));
+                }
+            }
+        }
 
         function onKeyup() {
 
